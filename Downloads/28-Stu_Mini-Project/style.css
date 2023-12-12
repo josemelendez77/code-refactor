@@ -1,27 +1,29 @@
 :root{
+    --outer-space: #33393f;
+    --bright-turqoise: #2aefcb;
+    --gin: #e0eae4;
+    --heliotrope: #e866ec;
    
    
 }
 
 ::selection{
-    background-color: ;
-    color:
+    background-color:var(--bright-turqoise) ;
+    color:var(--outer-space)
 }
     
 html {
-    font-size:55%
+    font-size:62%
 }
 
 
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    min-height:100vh;
-    justify-content: flex-start;
-    background-color: gray;
+    font-size: 1.75rem;
+    line-height: 1.5;
+   color: #e0eae4;
+    background-color:var(--outer-space);
 }
 
 h1,
@@ -30,67 +32,59 @@ h3,
 h4,
 h5,
 h6,{
-    margin-bottom:5px;
+    margin-bottom: 0.625rem;
+    color: var(--heliotrope);
     font-weight: 700;
-    line-height:1.1;
-    color:
+    line-height: 1.1;
 }
 
 h1{
-font-size: 5 rem;
-margin-bottom: 10px;
+    
+font-size: 4 rem;
 }
 
 h2{
-    font-size: 4.5 rem;
-    margin-bottom: 10px;
+    font-size: 3.5 rem;
+    
 }
 
 h3{
-    font-size: 4 rem;
-    margin-bottom: 10px;
+    font-size: 3 rem;
+   
 }
 
    h4{
-    font-size: 3.5 rem;
-    margin-bottom: 10px;
+    font-size: 2.5 rem;
+    
    } 
 
    h5{
-    font-size: 3 rem;
-    margin-bottom: 10px;
+    font-size: 2 rem;
+   
    }
 
    h6{
-    font-size: 2.5 rem;
-    margin-bottom: 10px;
+    font-size: 1.5 rem;
+    
+   }
+   p{
+    margin-bottom: 1rem;
    }
 
-section{
-    display: flex;
-}
-.card{
-    border: 2px;
-    border-color: white;
-    padding: 50px;
-    border-style: dashed;
-    display: flex;
-    flex-wrap: wrap;
-    width: 25%;
-justify-content: space-between;
-margin: 5%;
-height: 30px;
+   code{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
 
-}
+
 header{
-    padding: 40px;
+    padding: 2.5rem;
     text-align: center;
     width: 90%;
     margin: 0 auto;
 }
 
 header h1.page-title{
-    padding: 2rem;
+    padding: 1rem 1.2rem; 
     font size: 5rem:
 }
 
@@ -105,21 +99,40 @@ footer{
 
 }
 
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.linear-gradient-background{
+    background-image: linear-gradient(
+        rgba(232, 102, 0.3,) 0%
+        rgba(232, 102, 0.3,) 100%
+    );
+}
+
+
 .row{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    margin-left: 2rem;
-}
+    flex-wrap: wrap;
+    }
 
 .justify-center {
     justify-content: center;
 }
 
-.card-colum {
+.card-column {
     flex: 1 0 100%;
     padding: 2rem;
     transition: flex-basis 500ms linear;
+    margin-bottom: 1.5rem;
 }
 
 .code-card{
@@ -128,5 +141,74 @@ footer{
     min-height: 100%;
     padding: 2rem;
     color:
+    outline:  2px dashed var(--gin);
+    outline: -2px;
+    transition: all 0.5s ease-in-out;
+}
+
+.code-card .card-header {
+    position: relative;
+    margin: -4rem 0 1.5 0;
+    background-color:var(--outer-space);
+    color: var(--heliotrope);
+    border: 2px solid var(--gin);
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+.code-card:hover,
+.code-card:hover .card-header {
+     box-shadow:inset 0px 0px 8px var(--heliotrope), 0 0 15px var(--heliotrope) ;
+}
+
+.card-header {
+    position: relative;
+    margin-top: -20px;
+}
+
+
+
+.code-card .code-block {
+    flex-grow: 1;
+}
+
+.code-card pre {
+    white-space: pre-wrap;
+    overflow: auto;
+    tab-size: 4;
+    padding: 1.2rem 1rem;
+    color: var(--gin);
+    border-radius: 8px;
+    background-image: linear-gradient(
+        rgba( 232, 102, 236, 0.3) 0%,
+        rgba( 232, 102, 236, 0.3) 100%
+    );
+    display: flex;
+    align-items: center;
+}
+
+.code-card pre:active{
+    user-select: all;
+}
+
+@media screen and (min-width: 760px) {
+    .card-colum {
+        flex: 0 0 50%;
+        min width: 50%;
+    }
     
+    .card-column:last-child {
+        flex-grow: 1;
+    }
+}
+
+@media  and (min-width: 990px) {
+    header {
+        width: 75%;
+    }
+
+    .card-colum{
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+   
 }
